@@ -72,55 +72,37 @@ Support teams waste time manually reading and triaging customer messages. This t
 
 ## Example Test Messages
 
-### Example 1: Short Urgent Message (Incorrectly Categorized)
-**Input:**
+Try analyzing these messages to see how the triage system works:
+
+### Example 1: Production Issue
 ```
 Our production server is down
 ```
 
-**Expected Issues:**
-- Marked as "Low" urgency (because it's short)
-- Should be "High" urgency!
-
-### Example 2: Long Message with Exclamation (Incorrectly Categorized)
-**Input:**
+### Example 2: Customer Feedback
 ```
 Hi there! I just wanted to say thank you for your amazing customer service. I've been using your product for three years now and I'm really happy with it. Keep up the great work!
 ```
 
-**Expected Issues:**
-- Marked as "High" urgency (because it contains "!")
-- Should be "Low" urgency (it's just a compliment)
-
-### Example 3: Feature Request Template Mismatch
-**Input:**
+### Example 3: Feature Request
 ```
 I would love to see a dark mode option in the app. It would be much easier on my eyes during night time usage.
 ```
 
-**Expected Issues:**
-- Categorized as "Feature Request"
-- Recommended action: "Ask user to check billing portal" (wrong template!)
-
-### Example 4: Ambiguous Category
-**Input:**
+### Example 4: Payment Issue
 ```
 I tried to update my payment method but the page keeps loading forever. Is this a known issue?
 ```
 
-**Expected Issues:**
-- Could be categorized as either "Billing Issue" or "Technical Problem"
-- Inconsistent categorization depending on LLM response
-
-### Example 5: Empty or Invalid Input
-**Input:**
+### Example 5: Billing Question
 ```
-(empty string or just spaces)
+Can I upgrade my subscription to the pro plan?
 ```
 
-**Expected Issues:**
-- No validation prevents submission
-- May cause API errors or unexpected behavior
+### Example 6: Technical Support
+```
+The dashboard won't load when I try to access it. I've tried refreshing but it keeps timing out.
+```
 
 ## Security Note
 
